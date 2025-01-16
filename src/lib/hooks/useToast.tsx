@@ -9,7 +9,7 @@ import { useContext } from '@/lib/hooks/useContext'
 type CreateToast = (props: Toast) => void
 type DeleteToast = (id: string) => void
 
-interface Toast {
+export interface Toast {
   type: 'success' | 'error' | 'warning' | 'info'
   message: string
   icon?: Icons
