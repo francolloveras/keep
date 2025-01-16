@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Rubik } from 'next/font/google'
 
+import { DialogProvider } from '@/lib/hooks/useDialog'
 import { ToastProvider } from '@/lib/hooks/useToast'
 
 const rubik = Rubik({
@@ -23,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${rubik.className} antialiased`}>
-        <ToastProvider>{children}</ToastProvider>
+        <ToastProvider>
+          <DialogProvider>{children}</DialogProvider>
+        </ToastProvider>
       </body>
     </html>
   )
