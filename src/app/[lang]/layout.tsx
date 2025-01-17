@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Rubik } from 'next/font/google'
 
+import { Locale } from '@/lib/dictionaries/get-dictionaries'
 import { DialogProvider } from '@/lib/hooks/useDialog'
 import { ToastProvider } from '@/lib/hooks/useToast'
 
@@ -16,13 +17,17 @@ export const metadata: Metadata = {
   description: 'Keep your money controlled recording your daily movements'
 }
 
-export default function RootLayout({
+export default async function RootLayout({
+  params,
   children
 }: Readonly<{
+  params: Promise<{ lang: Locale }>
   children: React.ReactNode
 }>) {
+  const { lang } = await params
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body className={`${rubik.className} antialiased`}>
         <ToastProvider>
           <DialogProvider>{children}</DialogProvider>

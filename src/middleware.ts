@@ -1,7 +1,37 @@
+import { match } from '@formatjs/intl-localematcher'
+import Negotiator from 'negotiator'
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 
-export async function middleware(request: NextRequest): Promise<NextResponse> {
+import { LOCALES } from '@/lib/const'
+
+function getLocale(request: Request) {
+  const headers: Record<string, string> = {}
+  request.headers.forEach((value, key) => (headers[key] = value))
+
+  const languages = new Negotiator({ headers }).languages()
+  const defaultLocale = 'en'
+
+  return match(languages, LOCALES, defaultLocale)
+}
+
+export async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname
+
+  // Check if there is any supported locale in the pathname.
+  const pathnameIsMissingLocale = LOCALES.every(
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  )
+
+  // Redirect if there is no locale.
+  if (pathnameIsMissingLocale) {
+    const locale = getLocale(request)
+
+    return NextResponse.redirect(
+      new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url)
+    )
+  }
+
   if (request.method === 'GET') {
     const response = NextResponse.next()
     const token = request.cookies.get('session')?.value ?? null
@@ -48,6 +78,8 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
       status: 403
     })
   }
+}
 
-  return NextResponse.next()
+export const config = {
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
 }
