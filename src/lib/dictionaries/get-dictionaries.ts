@@ -8,5 +8,6 @@ const dictionaries = {
 }
 
 export type Locale = (typeof LOCALES)[number]
+export type Dict = Awaited<ReturnType<typeof getDictionary>>
 
 export const getDictionary = async (locale: Locale) => dictionaries[locale]?.() ?? dictionaries.en()

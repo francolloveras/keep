@@ -3,9 +3,10 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Rubik } from 'next/font/google'
 
-import { Locale } from '@/lib/dictionaries/get-dictionaries'
+import { getDictionary, Locale } from '@/lib/dictionaries/get-dictionaries'
 import { DialogProvider } from '@/lib/hooks/useDialog'
 import { ToastProvider } from '@/lib/hooks/useToast'
+import { LocaleProvider } from '@/lib/hooks/useLocale'
 
 const rubik = Rubik({
   variable: '--font-rubik',
@@ -25,13 +26,16 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   const { lang } = await params
+  const dict = await getDictionary(lang)
 
   return (
     <html lang={lang}>
       <body className={`${rubik.className} antialiased`}>
-        <ToastProvider>
-          <DialogProvider>{children}</DialogProvider>
-        </ToastProvider>
+        <LocaleProvider lang={lang} dict={dict}>
+          <ToastProvider>
+            <DialogProvider>{children}</DialogProvider>
+          </ToastProvider>
+        </LocaleProvider>
       </body>
     </html>
   )
