@@ -1,4 +1,5 @@
 'use client'
+
 import { type Context, useContext as ReactUseContext } from 'react'
 
 export const useContext = <ItemType>(context: Context<ItemType | null>): ItemType => {
