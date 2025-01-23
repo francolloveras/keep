@@ -22,13 +22,12 @@ export default function DialogWrapper() {
     return () => {
       document.removeEventListener('keydown', onClickEvent)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen])
 
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+    <div role="dialog" className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
       <div className="w-11/12 max-w-md rounded-md border border-zinc-800 bg-zinc-900 shadow-lg transition-transform">
         <div className="flex items-center justify-between border-b border-zinc-800 p-4">
           <h3 className="text-xl font-medium text-zinc-300">{title}</h3>
