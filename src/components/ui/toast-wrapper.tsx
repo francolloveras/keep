@@ -15,7 +15,10 @@ export default function ToastWrapper() {
   }
 
   return (
-    <div className="fixed bottom-5 left-2/4 z-50 flex -translate-x-2/4 flex-col items-center justify-center gap-2">
+    <div
+      role="alert"
+      className="fixed bottom-5 left-2/4 z-50 flex -translate-x-2/4 flex-col items-center justify-center gap-2"
+    >
       {toasts.map(({ id, type, message, icon, isVisible, action }) => (
         <div
           key={id}
