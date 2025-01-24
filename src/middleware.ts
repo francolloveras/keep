@@ -18,6 +18,9 @@ function getLocale(request: Request) {
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
+  // Ignore files in public.
+  if (['/flags/es.svg', '/flags/uk.svg'].includes(pathname)) return
+
   // Check if there is any supported locale in the pathname.
   const pathnameIsMissingLocale = LOCALES.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
@@ -32,6 +35,7 @@ export async function middleware(request: NextRequest) {
     )
   }
 
+  // Update the session cookie only in GET request.
   if (request.method === 'GET') {
     const response = NextResponse.next()
     const token = request.cookies.get('session')?.value ?? null
