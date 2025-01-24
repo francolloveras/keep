@@ -12,6 +12,7 @@ model User {
   username String    @unique
   email    String    @unique
   name     String
+  password String
   sessions Session[]
 
   @@map("users")
