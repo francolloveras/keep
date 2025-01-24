@@ -1,6 +1,7 @@
 import * as icons from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import clsx from 'clsx'
+
+import { cx } from '@/lib/utils'
 
 export type Icons = keyof typeof icons
 
@@ -19,7 +20,7 @@ export default function Icon({ icon, className }: IconProps) {
   return (
     <FontAwesomeIcon
       icon={selectedIcon as icons.IconDefinition}
-      className={clsx('mb-px inline-block size-4 align-middle', [className])}
+      className={cx('mb-0.5 inline-block size-4 align-middle', [className])}
     />
   )
 }
