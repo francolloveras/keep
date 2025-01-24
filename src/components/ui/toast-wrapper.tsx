@@ -1,8 +1,8 @@
 'use client'
-import clsx from 'clsx'
 
 import Icon, { type Icons } from '@/components/ui/icon'
 import { useToast } from '@/lib/hooks/useToast'
+import { cx } from '@/lib/utils'
 
 export default function ToastWrapper() {
   const { toasts, deleteToast } = useToast()
@@ -22,7 +22,7 @@ export default function ToastWrapper() {
       {toasts.map(({ id, type, message, icon, isVisible, action }) => (
         <div
           key={id}
-          className={clsx(
+          className={cx(
             'flex w-fit items-center justify-between gap-8 rounded-md px-5 py-2 shadow-md transition-all duration-300 ease-in-out',
             {
               'bg-green-400 text-green-900': type === 'success',
