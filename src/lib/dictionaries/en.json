@@ -1,7 +1,28 @@
 {
   "home": "Home",
   "login": {
-    "title": "Login",
-    "description": "Welcome, to access you need to log in."
+    "title": "Welcome back!",
+    "description": "Sign in to continue.",
+    "form": {
+      "labels": {
+        "username": "Username",
+        "password": "Password"
+      },
+      "placeholders": {
+        "username": "your username"
+      },
+      "submit": "Sign in",
+      "forgotPassword": "Forgot your password?",
+      "errors": {
+        "username": {
+          "minLength": "Enter the username.",
+          "invalidCredentials": "The user or password is not correct."
+        },
+        "password": {
+          "minLength": "Enter the password.",
+          "invalidCredentials": "The user or password is not correct."
+        }
+      }
+    }
   }
 }

@@ -1,7 +1,28 @@
 {
   "home": "Inicio",
   "login": {
-    "title": "Iniciar sesión",
-    "description": "Bienvenido, para acceder necesitas iniciar sesión."
+    "title": "¡Bienvenido de nuevo!",
+    "description": "Inicia sesión para continuar.",
+    "form": {
+      "labels": {
+        "username": "Usuario",
+        "password": "Contraseña"
+      },
+      "placeholders": {
+        "username": "tu nombre de usuario"
+      },
+      "submit": "Iniciar sesión",
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "errors": {
+        "username": {
+          "minLength": "Ingresa el usuario.",
+          "invalidCredentials": "El usuario o contraseña no son correctas."
+        },
+        "password": {
+          "minLength": "Ingresa la contraseña.",
+          "invalidCredentials": "El usuario o contraseña no son correctas."
+        }
+      }
+    }
   }
 }
