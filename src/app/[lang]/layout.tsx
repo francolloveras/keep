@@ -1,15 +1,16 @@
 import './globals.css'
 
 import type { Metadata } from 'next'
-import { Rubik } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
 import { getDictionary, Locale } from '@/lib/dictionaries/get-dictionaries'
 import { DialogProvider } from '@/lib/hooks/useDialog'
-import { ToastProvider } from '@/lib/hooks/useToast'
 import { LocaleProvider } from '@/lib/hooks/useLocale'
+import { ModalProvider } from '@/lib/hooks/useModal'
+import { ToastProvider } from '@/lib/hooks/useToast'
 
-const rubik = Rubik({
-  variable: '--font-rubik',
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin']
 })
 
@@ -30,10 +31,12 @@ export default async function RootLayout({
 
   return (
     <html lang={lang}>
-      <body className={`${rubik.className} antialiased`}>
+      <body className={`${inter.className} antialiased`} style={{ scrollbarGutter: 'stable' }}>
         <LocaleProvider lang={lang} dict={dict}>
           <ToastProvider>
-            <DialogProvider>{children}</DialogProvider>
+            <DialogProvider>
+              <ModalProvider>{children}</ModalProvider>
+            </DialogProvider>
           </ToastProvider>
         </LocaleProvider>
       </body>
