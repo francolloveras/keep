@@ -75,7 +75,7 @@ export const useModal = (id: string, position: Positions = 'bottom', method: Met
       switch (position) {
         case 'top':
           return {
-            top: triggerRect.top + window.scrollY,
+            top: triggerRect.top + window.scrollY + 3,
             left: triggerRect.left + window.scrollX
           }
         case 'right':
@@ -85,17 +85,17 @@ export const useModal = (id: string, position: Positions = 'bottom', method: Met
           }
         case 'bottom':
           return {
-            top: triggerRect.bottom + window.scrollY,
+            top: triggerRect.bottom + window.scrollY + 3,
             left: triggerRect.left + window.scrollX
           }
         case 'left':
           return {
             top: triggerRect.top + window.scrollY,
-            left: triggerRect.left + window.scrollX
+            left: triggerRect.left - triggerRect.width + window.scrollX
           }
         default:
           return {
-            top: triggerRect.bottom + window.scrollY,
+            top: triggerRect.bottom + window.scrollY + 3,
             left: triggerRect.left + window.scrollX
           }
       }
