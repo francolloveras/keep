@@ -1,8 +1,9 @@
 'use client'
 
 import { createContext } from 'react'
+
+import type { Dict, Locale } from '@/lib/dictionaries'
 import { useContext } from '@/lib/hooks/useContext'
-import type { Dict, Locale } from '@/lib/dictionaries/get-dictionaries'
 
 interface LocaleContextValues {
   lang: Locale

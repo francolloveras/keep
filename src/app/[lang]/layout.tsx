@@ -3,7 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import { getDictionary, Locale } from '@/lib/dictionaries/get-dictionaries'
+import { getDictionary, Locale } from '@/lib/dictionaries'
 import { DialogProvider } from '@/lib/hooks/useDialog'
 import { LocaleProvider } from '@/lib/hooks/useLocale'
 import { ModalProvider } from '@/lib/hooks/useModal'

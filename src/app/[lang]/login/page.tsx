@@ -4,7 +4,7 @@ import Form from '@/app/[lang]/login/form'
 import { getCurrentSession } from '@/auth'
 import LocaleSwitcher from '@/components/ui/locale-switcher'
 import { PATHS } from '@/lib/const'
-import { getDictionary, type Locale } from '@/lib/dictionaries/get-dictionaries'
+import { getDictionary, type Locale } from '@/lib/dictionaries'
 
 export const metadata = {
   title: 'Login'
