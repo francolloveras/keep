@@ -57,7 +57,7 @@ export type Positions = 'top' | 'right' | 'bottom' | 'left'
 export type Methods = 'click' | 'hover'
 
 export const useModal = (id: string, position: Positions = 'bottom', method: Methods) => {
-  const { modals, addModal, removeModal } = useContext(ModalContext)
+  const { addModal, removeModal } = useContext(ModalContext)
 
   const modalRef = useRef<HTMLDivElement | null>(null)
   const triggerRef = useRef<HTMLButtonElement | null>(null)
@@ -67,9 +67,8 @@ export const useModal = (id: string, position: Positions = 'bottom', method: Met
 
     if (!triggerRect) return
 
-    const alreadyExists = modals.find((modal) => modal.id === id)
-
-    if (alreadyExists) return
+    // Remove existing modal before adding a new one (ensuring content updates)
+    removeModal(id)
 
     const modalPositionStyles = () => {
       switch (position) {
@@ -79,10 +78,7 @@ export const useModal = (id: string, position: Positions = 'bottom', method: Met
             left: triggerRect.left + window.scrollX
           }
         case 'right':
-          return {
-            top: triggerRect.top + window.scrollY,
-            left: triggerRect.right + window.scrollX
-          }
+          return { top: triggerRect.top + window.scrollY, left: triggerRect.right + window.scrollX }
         case 'bottom':
           return {
             top: triggerRect.bottom + window.scrollY + 3,
