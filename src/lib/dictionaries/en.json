@@ -24,5 +24,17 @@
         }
       }
     }
+  },
+  "menu": {
+    "options": {
+      "language": "Language",
+      "theme": "Theme",
+      "account": "My account",
+      "signout": "Sign out"
+    }
+  },
+  "themes": {
+    "light": "Light",
+    "dark": "Dark"
   }
 }
