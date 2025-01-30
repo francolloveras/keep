@@ -34,7 +34,7 @@ export default function Form() {
         />
       </main>
       <footer className="flex w-full flex-col gap-y-4 text-center">
-        <SubmitButton loading={loading} icon="faRightToBracket" className="w-full">
+        <SubmitButton loading={loading} icon="faArrowRightToBracket" className="mr-2 w-full">
           {dict.login.form.submit}
         </SubmitButton>
         <Link href="#" className="hover:underline">
