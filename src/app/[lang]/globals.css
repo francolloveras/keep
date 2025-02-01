@@ -16,7 +16,7 @@
   :root[class~='dark'] {
     color-scheme: dark;
     --background: 23 23 23; /* #171717 */
-    --primary: 67 56 202; /* #4338ca */
+    --primary: 151 142 255; /* #978eff */
     --error: 220 38 38; /* #dc2626 */
     --surface: 38 38 38; /* #262626 */
     --text: 229 229 229; /* #e5e5e5 */
