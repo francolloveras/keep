@@ -38,7 +38,11 @@ export async function validateSessionToken(token: string): Promise<SessionValida
       id: sessionId
     },
     include: {
-      user: true
+      user: {
+        include: {
+          sessions: true
+        }
+      }
     }
   })
 
@@ -110,5 +114,5 @@ export const getCurrentSession = cache(async (): Promise<SessionValidationResult
 })
 
 export type SessionValidationResult =
-  | { session: Session; user: User }
+  | { session: Session; user: User & { sessions: Session[] } }
   | { session: null; user: null }
