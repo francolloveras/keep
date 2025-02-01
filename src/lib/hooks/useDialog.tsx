@@ -7,7 +7,6 @@ import { useContext } from '@/lib/hooks/useContext'
 
 interface Dialog {
   isOpen: boolean
-  title: string | null
   content: React.ReactNode | null
 }
 
@@ -27,7 +26,6 @@ export function DialogProvider({
 }>) {
   const defaultState: Dialog = {
     isOpen: false,
-    title: null,
     content: null
   }
 
