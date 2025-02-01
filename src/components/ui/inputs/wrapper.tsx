@@ -5,6 +5,7 @@ export interface InputWrapperProps {
   label?: string
   error?: string
   isRequired?: boolean
+  isDisabled?: boolean
   supportingText?: string
   children: React.ReactNode
 }
@@ -14,6 +15,7 @@ export default function InputWrapper({
   label,
   error,
   isRequired,
+  isDisabled,
   supportingText,
   children
 }: InputWrapperProps) {
@@ -23,7 +25,8 @@ export default function InputWrapper({
         <label
           htmlFor={name}
           className={cx('mb-1 text-sm/6 block', {
-            "after:ml-1 after:text-error after:content-['*']": isRequired
+            "after:ml-1 after:text-error after:content-['*']": isRequired,
+            'pointer-events-none opacity-50': isDisabled
           })}
         >
           {label}
@@ -31,7 +34,7 @@ export default function InputWrapper({
       )}
       {children}
       <p
-        className={cx('mt-1 h-5 text-right text-sm', {
+        className={cx('mt-1 h-5 text-right text-xs text-text/60', {
           'text-error': error !== undefined
         })}
       >

@@ -13,13 +13,15 @@ export default function Input({
   placeholder,
   type,
   error,
+  isDisabled,
   ...wrapperProps
 }: InputProps) {
   return (
-    <InputWrapper name={name} error={error} {...wrapperProps}>
+    <InputWrapper name={name} error={error} isDisabled={isDisabled} {...wrapperProps}>
       <input
         type={type}
         name={name}
+        disabled={isDisabled}
         defaultValue={defaultValue}
         placeholder={placeholder}
         className={cx(
