@@ -10,26 +10,33 @@ import { useLocale } from '@/lib/hooks/useLocale'
 
 export default function Form() {
   const { dict } = useLocale()
-  const { fields, errors, loading, action } = useForm({ action: login })
+  const { fields, errors, loading, action } = useForm({
+    action: login,
+    toastMessages: {
+      unknown: dict.forms.toasts.login.unknown
+    }
+  })
+
+  const dictFields = dict.forms.fields.user
 
   return (
     <form action={action} className="space-y-10">
       <main className="space-y-3">
         <Input
           name="username"
-          label={dict.login.form.labels.username}
+          label={dictFields.username.label}
           defaultValue={fields?.username}
-          error={errors?.username ? dict.login.form.errors.username[errors.username] : undefined}
-          placeholder={dict.login.form.placeholders.username}
+          error={errors?.username ? dictFields.username.errors[errors.username] : undefined}
+          placeholder={dictFields.username.placeholder}
           isRequired
         />
         <Input
           type="password"
           name="password"
-          label={dict.login.form.labels.password}
+          label={dictFields.password.label}
           defaultValue={fields?.password}
-          error={errors?.password ? dict.login.form.errors.password[errors.password] : undefined}
-          placeholder="•••••••••••••••••••"
+          error={errors?.password ? dictFields.password.errors[errors.password] : undefined}
+          placeholder={dictFields.password.placeholder}
           isRequired
         />
       </main>

@@ -16,7 +16,7 @@ export default function ThemeSwitcher() {
         <>
           <span className="flex-1 text-left">
             <Icon icon="faCircleHalfStroke" className="mr-2 size-3.5" />
-            {dict.menu.options.theme}
+            {dict.layout.menu.theme}
           </span>
           <Icon icon="faAngleRight" className="mt-0.5 size-3" />
         </>
@@ -32,7 +32,7 @@ export default function ThemeSwitcher() {
             className="flex w-full cursor-pointer items-center gap-x-3 rounded p-1.5 hover:bg-current-shadow"
           >
             <Icon icon="faSun" className="size-3.5" />
-            {dict.themes.light}
+            {dict.general.themes.light}
             {theme === 'light' && (
               <span className="ml-auto inline-block size-2 rounded-full bg-primary" />
             )}
@@ -44,7 +44,7 @@ export default function ThemeSwitcher() {
             className="flex w-full cursor-pointer items-center gap-x-3 rounded p-1.5 hover:bg-current-shadow"
           >
             <Icon icon="faMoon" className="size-3.5" />
-            {dict.themes.dark}
+            {dict.general.themes.dark}
             {theme === 'dark' && (
               <span className="ml-auto inline-block size-2 rounded-full bg-primary" />
             )}

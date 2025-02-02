@@ -1,40 +1,86 @@
 {
+  "general": {
+    "themes": {
+      "light": "Blanco",
+      "dark": "Oscuro"
+    }
+  },
+  "layout": {
+    "menu": {
+      "language": "Idioma",
+      "theme": "Tema",
+      "account": "Mi cuenta",
+      "signout": "Cerrar sesión"
+    },
+    "account": {
+      "tabs": {
+        "general": {
+          "name": "General",
+          "title": "Información personal",
+          "description": "Gestiona tu información personal."
+        },
+        "sessions": {
+          "name": "Sesiones",
+          "title": "Sesiones activas",
+          "description": "Gestiona tus sesiones actuales."
+        }
+      },
+      "form": {
+        "cancel": "Cancelar",
+        "submit": "Guardar configuración"
+      }
+    }
+  },
+  "forms": {
+    "fields": {
+      "user": {
+        "username": {
+          "label": "Usuario",
+          "placeholder": "tu nombre de usuario",
+          "errors": {
+            "minLength": "Ingresa el usuario.",
+            "invalidCredentials": "El usuario o la contraseña no es correcta."
+          }
+        },
+        "password": {
+          "label": "Contraseña",
+          "placeholder": "•••••••••••••••••••",
+          "errors": {
+            "minLength": "Ingresa la contraseña.",
+            "invalidCredentials": "El usuario o la contraseña no es correcta."
+          },
+          "supportingText": "La contraseña solo puede cambiarla el administrador."
+        },
+        "email": {
+          "label": "Correo electrónico",
+          "placeholder": "usuario@keep.com",
+          "errors": {
+            "minLength": "Ingresa el correo.",
+            "invalid": "El correo es inválido."
+          }
+        },
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Usuario",
+          "errors": {
+            "minLength": "Ingresa el nombre."
+          }
+        }
+      }
+    },
+    "toasts": {
+      "login": {
+        "unknown": "Ocurrió un error inesperado, prueba más tarde."
+      }
+    }
+  },
   "home": "Inicio",
   "login": {
     "title": "¡Bienvenido de nuevo!",
     "description": "Inicia sesión para continuar.",
     "form": {
-      "labels": {
-        "username": "Usuario",
-        "password": "Contraseña"
-      },
-      "placeholders": {
-        "username": "tu nombre de usuario"
-      },
       "submit": "Iniciar sesión",
-      "forgotPassword": "¿Olvidaste tu contraseña?",
-      "errors": {
-        "username": {
-          "minLength": "Ingresa el usuario.",
-          "invalidCredentials": "El usuario o contraseña no son correctas."
-        },
-        "password": {
-          "minLength": "Ingresa la contraseña.",
-          "invalidCredentials": "El usuario o contraseña no son correctas."
-        }
-      }
+      "forgotPassword": "¿Olvidaste tu contraseña?"
     }
-  },
-  "menu": {
-    "options": {
-      "language": "Idioma",
-      "theme": "Tema",
-      "account": "Mi cuenta",
-      "signout": "Cerrar sesión"
-    }
-  },
-  "themes": {
-    "light": "Blanco",
-    "dark": "Oscuro"
   }
 }

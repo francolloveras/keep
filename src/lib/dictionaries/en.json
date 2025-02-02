@@ -1,40 +1,86 @@
 {
+  "general": {
+    "themes": {
+      "light": "Light",
+      "dark": "Dark"
+    }
+  },
+  "layout": {
+    "menu": {
+      "language": "Language",
+      "theme": "Theme",
+      "account": "My account",
+      "signout": "Sign out"
+    },
+    "account": {
+      "tabs": {
+        "general": {
+          "name": "General",
+          "title": "Personal information",
+          "description": "Manage your personal information."
+        },
+        "sessions": {
+          "name": "Sessions",
+          "title": "Currents Sessions",
+          "description": "Manage your currents sessions."
+        }
+      },
+      "form": {
+        "cancel": "Cancel",
+        "submit": "Save settings"
+      }
+    }
+  },
+  "forms": {
+    "fields": {
+      "user": {
+        "username": {
+          "label": "Username",
+          "placeholder": "your username",
+          "errors": {
+            "minLength": "Enter the username.",
+            "invalidCredentials": "The user or password is not correct."
+          }
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "•••••••••••••••••••",
+          "errors": {
+            "minLength": "Enter the password.",
+            "invalidCredentials": "The user or password is not correct."
+          },
+          "supportingText": "Password can only be changed by system admin."
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "user@keep.com",
+          "errors": {
+            "minLength": "Enter the email.",
+            "invalid": "The email is not valid."
+          }
+        },
+        "name": {
+          "label": "Name",
+          "placeholder": "User",
+          "errors": {
+            "minLength": "Enter the name."
+          }
+        }
+      }
+    },
+    "toasts": {
+      "login": {
+        "unknown": "An unexpected error occurred, please try again later."
+      }
+    }
+  },
   "home": "Home",
   "login": {
     "title": "Welcome back!",
     "description": "Sign in to continue.",
     "form": {
-      "labels": {
-        "username": "Username",
-        "password": "Password"
-      },
-      "placeholders": {
-        "username": "your username"
-      },
       "submit": "Sign in",
-      "forgotPassword": "Forgot your password?",
-      "errors": {
-        "username": {
-          "minLength": "Enter the username.",
-          "invalidCredentials": "The user or password is not correct."
-        },
-        "password": {
-          "minLength": "Enter the password.",
-          "invalidCredentials": "The user or password is not correct."
-        }
-      }
+      "forgotPassword": "Forgot your password?"
     }
-  },
-  "menu": {
-    "options": {
-      "language": "Language",
-      "theme": "Theme",
-      "account": "My account",
-      "signout": "Sign out"
-    }
-  },
-  "themes": {
-    "light": "Light",
-    "dark": "Dark"
   }
 }

@@ -16,8 +16,13 @@ const loginScheme = z.object({
 })
 
 type LoginFields = z.infer<typeof loginScheme>
+type ToastMessages = 'unknown'
 
-export const login: FormAction<LoginFields> = async (bindData, prevData, formData) => {
+export const login: FormAction<LoginFields, ToastMessages> = async (
+  bindData,
+  prevData,
+  formData
+) => {
   const fields: Partial<LoginFields> = {
     username: formData.get('username')?.toString(),
     password: formData.get('password')?.toString()
@@ -76,7 +81,7 @@ export const login: FormAction<LoginFields> = async (bindData, prevData, formDat
       actions: {
         createToast: {
           type: 'error',
-          message: 'UNKNOWN'
+          message: 'unknown'
         }
       }
     }
