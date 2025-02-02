@@ -2,15 +2,24 @@
 
 import { useActionState, useEffect, useState } from 'react'
 
-import { INPUTS_ERRORS } from '@/lib/const'
+import { Dict } from '@/lib/dictionaries'
 import { useDialog } from '@/lib/hooks/useDialog'
 import { type Toast, useToast } from '@/lib/hooks/useToast'
 
-type InputsErrors = (typeof INPUTS_ERRORS)[number]
+type FieldErrorMap = {
+  [Group in keyof Dict['forms']['fields']]: {
+    [Field in keyof Dict['forms']['fields'][Group]]: 'errors' extends keyof Dict['forms']['fields'][Group][Field]
+      ? keyof Dict['forms']['fields'][Group][Field]['errors']
+      : never
+  }
+}
 
 interface FormState<Fields, ToastMessages extends string, Payload> {
   fields?: Partial<Fields>
-  errors?: Partial<Record<keyof Fields, InputsErrors>>
+  errors?: Partial<{
+    [K in keyof Fields &
+      keyof FieldErrorMap[keyof FieldErrorMap]]: FieldErrorMap[keyof FieldErrorMap][K]
+  }>
   payload?: Payload
   actions?: {
     closeDialog?: boolean
