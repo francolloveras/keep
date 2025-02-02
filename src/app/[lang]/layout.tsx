@@ -36,7 +36,10 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} className={theme}>
-      <body className={`${inter.className} antialiased`} style={{ scrollbarGutter: 'stable' }}>
+      <body
+        className={`${inter.className} flex min-h-screen flex-col antialiased`}
+        style={{ scrollbarGutter: 'stable' }}
+      >
         <LocaleProvider lang={lang} dict={dict}>
           <ThemeProvider theme={theme}>
             <ToastProvider>
