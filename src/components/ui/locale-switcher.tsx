@@ -1,10 +1,10 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import Icon from '@/components/ui/icon'
-import Link from '@/components/ui/link'
 import Menu from '@/components/ui/menu'
 import { LOCALES, LOCALES_FLAGS, LOCALES_LONG } from '@/lib/const'
 import { Locale } from '@/lib/dictionaries'
