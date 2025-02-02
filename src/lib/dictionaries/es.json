@@ -35,6 +35,11 @@
         "cancel": "Cancelar",
         "submit": "Guardar configuración"
       }
+    },
+    "footer": {
+      "credits": "Créditos de terceros",
+      "contact": "Contacto comercial",
+      "report": "Informar un problema"
     }
   },
   "forms": {

@@ -35,6 +35,11 @@
         "cancel": "Cancel",
         "submit": "Save settings"
       }
+    },
+    "footer": {
+      "credits": "Third party credits",
+      "contact": "Business Contact",
+      "report": "Report issue"
     }
   },
   "forms": {

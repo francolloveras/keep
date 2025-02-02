@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 
 import { getCurrentSession } from '@/auth'
+import Footer from '@/components/footer'
 import Nav from '@/components/nav'
 import { PATHS } from '@/lib/const'
 
@@ -20,6 +21,7 @@ export default async function RootLayout({
     <>
       <Nav user={user} />
       {children}
+      <Footer />
     </>
   )
 }
