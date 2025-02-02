@@ -24,7 +24,7 @@ export default function Button({
       disabled={isDisabled}
       className={cx(
         {
-          'rounded-md bg-primary px-3 py-2 text-sm/6 font-medium text-white hover:brightness-110 transition-colors disabled:pointer-events-none disabled:brightness-90':
+          'rounded-md bg-primary px-3 py-2 text-sm/6 font-medium text-background hover:brightness-110 transition-colors disabled:pointer-events-none disabled:brightness-90':
             variant === 'default',
           'rounded-md hover:bg-current-shadow border border-outline px-3 py-2 text-sm/6 font-medium':
             variant === 'outline',
