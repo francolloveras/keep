@@ -25,7 +25,7 @@ export default function ToastWrapper() {
         <div
           key={id}
           className={cx(
-            'relative flex w-fit justify-between bg-background border border-outline gap-10 rounded-md px-5 py-2 shadow-lg shadow-black/5 transition-all duration-300 ease-in-out',
+            'relative flex w-fit justify-between bg-background border border-l-0 border-outline gap-10 rounded-md px-5 py-2 shadow-lg shadow-black/5 transition-all duration-300 ease-in-out',
             {
               'translate-y-0 opacity-100': isVisible,
               'translate-y-5 opacity-0': !isVisible
@@ -33,7 +33,7 @@ export default function ToastWrapper() {
           )}
         >
           <div
-            className={cx('absolute top-0 rounded-l-md left-0 h-full w-2', {
+            className={cx('absolute -top-px rounded-l-md -left-px h-[calc(100%+0.13rem)] w-2', {
               'bg-success': type === 'success',
               'bg-error': type === 'error',
               'bg-info': type === 'info',
