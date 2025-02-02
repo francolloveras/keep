@@ -9,5 +9,5 @@ export function usePathname() {
 
   const localePattern = new RegExp(`^/(${LOCALES.join('|')})`)
 
-  return pathname.replace(localePattern, '/')
+  return pathname.replace(localePattern, '/').replace('//', '/')
 }
