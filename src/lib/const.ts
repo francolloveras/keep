@@ -12,5 +12,3 @@ export const PATHS = {
   HOME: '/',
   LOGIN: '/login'
 } as const
-
-export const INPUTS_ERRORS = ['minLength', 'invalidCredentials'] as const
