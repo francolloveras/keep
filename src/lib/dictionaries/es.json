@@ -36,6 +36,13 @@
         "submit": "Guardar configuración"
       }
     },
+    "nav": {
+      "home": "Dashboard",
+      "cards": "Tarjetas",
+      "bills": "Gastos",
+      "subscriptions": "Suscripciones",
+      "settings": "Configuraciones"
+    },
     "footer": {
       "credits": "Créditos de terceros",
       "contact": "Contacto comercial",

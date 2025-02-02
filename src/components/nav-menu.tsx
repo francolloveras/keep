@@ -18,7 +18,7 @@ export default function NavMenu({ user }: MenuProps) {
   const { dict, lang } = useLocale()
 
   return (
-    <div>
+    <div className="mb-1">
       <Menu
         id="nav-menu"
         label={

@@ -36,6 +36,13 @@
         "submit": "Save settings"
       }
     },
+    "nav": {
+      "home": "Dashboard",
+      "cards": "Cards",
+      "bills": "Bills",
+      "subscriptions": "Subscriptions",
+      "settings": "Settings"
+    },
     "footer": {
       "credits": "Third party credits",
       "contact": "Business Contact",
