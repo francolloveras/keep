@@ -1,9 +1,8 @@
 'use client'
 
-import Link from 'next/link'
-
 import SubmitButton from '@/components/ui/buttons/submit-button'
 import Input from '@/components/ui/inputs/input'
+import Link from '@/components/ui/link'
 import { login } from '@/lib/actions/login'
 import { useForm } from '@/lib/hooks/useForm'
 import { useLocale } from '@/lib/hooks/useLocale'

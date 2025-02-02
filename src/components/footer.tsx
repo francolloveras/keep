@@ -1,7 +1,6 @@
 'use client'
 
-import Link from 'next/link'
-
+import Link from '@/components/ui/link'
 import { useLocale } from '@/lib/hooks/useLocale'
 
 export default function Footer() {
