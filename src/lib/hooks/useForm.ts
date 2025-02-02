@@ -8,13 +8,13 @@ import { type Toast, useToast } from '@/lib/hooks/useToast'
 
 type InputsErrors = (typeof INPUTS_ERRORS)[number]
 
-interface FormState<Fields, Payload> {
+interface FormState<Fields, ToastMessages extends string, Payload> {
   fields?: Partial<Fields>
   errors?: Partial<Record<keyof Fields, InputsErrors>>
   payload?: Payload
   actions?: {
     closeDialog?: boolean
-    createToast?: Toast
+    createToast?: Omit<Toast, 'message'> & { message: ToastMessages }
   }
 }
 
@@ -24,23 +24,30 @@ interface DefaultBindData {
   uniqueHasChange?: boolean
 }
 
-export type FormAction<Fields, BindData = DefaultBindData, Payload = null> = (
+export type FormAction<
+  Fields,
+  ToastMessages extends string,
+  BindData = DefaultBindData,
+  Payload = null
+> = (
   bindData: BindData,
-  prevState: FormState<Fields, Payload> | undefined,
+  prevState: FormState<Fields, ToastMessages, Payload> | undefined,
   formData: FormData
-) => Promise<FormState<Fields, Payload>>
+) => Promise<FormState<Fields, ToastMessages, Payload>>
 
-interface UseFormProps<Fields, BindData, Payload> {
-  action: FormAction<Fields, BindData, Payload>
+interface UseFormProps<Fields, ToastMessages extends string, BindData, Payload> {
+  action: FormAction<Fields, ToastMessages, BindData, Payload>
+  toastMessages: Record<ToastMessages, string>
   payload?: BindData
-  initialState?: FormState<Fields, Payload>
+  initialState?: FormState<Fields, ToastMessages, Payload>
 }
 
-export function useForm<Fields, BindData, Payload>({
+export function useForm<Fields, ToastMessages extends string, BindData, Payload>({
   action: initialAction,
   payload = {} as BindData,
-  initialState
-}: UseFormProps<Fields, BindData, Payload>) {
+  initialState,
+  toastMessages
+}: UseFormProps<Fields, ToastMessages, BindData, Payload>) {
   const boundAction = initialAction.bind(null, payload)
 
   const [state, action, loading] = useActionState(boundAction, initialState)
@@ -62,7 +69,10 @@ export function useForm<Fields, BindData, Payload>({
     }
 
     if (state?.actions?.createToast) {
-      createToast(state.actions.createToast)
+      createToast({
+        ...state.actions.createToast,
+        message: toastMessages[state.actions.createToast.message]
+      })
     }
   }, [state])
 
