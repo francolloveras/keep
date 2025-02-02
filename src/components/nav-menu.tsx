@@ -1,16 +1,17 @@
 'use client'
 
-import { User } from '@prisma/client'
+import { Session, User } from '@prisma/client'
 
+import AccountDialog from '@/components/account-dialog'
+import DialogButton from '@/components/ui/buttons/dialog-button'
 import Icon from '@/components/ui/icon'
+import LocaleSwitcher from '@/components/ui/locale-switcher'
 import Menu from '@/components/ui/menu'
+import ThemeSwitcher from '@/components/ui/theme-switcher'
 import { useLocale } from '@/lib/hooks/useLocale'
 
-import LocaleSwitcher from './ui/locale-switcher'
-import ThemeSwitcher from './ui/theme-switcher'
-
 interface MenuProps {
-  user: User
+  user: User & { sessions: Session[] }
 }
 
 export default function NavMenu({ user }: MenuProps) {
@@ -33,10 +34,18 @@ export default function NavMenu({ user }: MenuProps) {
       >
         <ul className="rounded-md border border-outline bg-background px-1 py-1.5">
           <li>
-            <button className="w-full rounded p-1.5 text-left hover:bg-current-shadow">
-              <Icon icon="faUser" className="mr-2 size-3.5" />
-              {dict.menu.options.account}
-            </button>
+            <DialogButton
+              variant="none"
+              label={
+                <>
+                  <Icon icon="faUser" className="mr-2 size-3.5" />
+                  {dict.layout.menu.account}
+                </>
+              }
+              className="w-full rounded p-1.5 text-left hover:bg-current-shadow"
+            >
+              <AccountDialog user={user} />
+            </DialogButton>
           </li>
           <div role="separator" className="-mx-1 my-1 h-px border-t border-outline" />
           <li>
@@ -47,7 +56,7 @@ export default function NavMenu({ user }: MenuProps) {
                 <>
                   <span className="flex-1 text-left">
                     <Icon icon="faEarthAmericas" className="mr-2 size-3.5" />
-                    {dict.menu.options.language}
+                    {dict.layout.menu.language}
                   </span>
                   <Icon icon="faAngleRight" className="mt-0.5 size-3" />
                 </>
@@ -63,7 +72,7 @@ export default function NavMenu({ user }: MenuProps) {
           <li>
             <button className="w-full rounded p-1.5 text-left hover:bg-error hover:text-white">
               <Icon icon="faArrowRightFromBracket" className="mr-2 mt-0.5 size-3.5" />
-              {dict.menu.options.signout}
+              {dict.layout.menu.signout}
             </button>
           </li>
         </ul>

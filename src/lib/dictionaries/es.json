@@ -3,6 +3,12 @@
     "themes": {
       "light": "Blanco",
       "dark": "Oscuro"
+    },
+    "accents": {
+      "error": "Error",
+      "success": "Éxito",
+      "warning": "Advertencia",
+      "info": "Información"
     }
   },
   "layout": {
@@ -70,6 +76,11 @@
     },
     "toasts": {
       "login": {
+        "unknown": "Ocurrió un error inesperado, prueba más tarde."
+      },
+      "user": {
+        "notSession": "Tu sesión venció, debes iniciar sesión.",
+        "success": "Datos actualizados correctamente.",
         "unknown": "Ocurrió un error inesperado, prueba más tarde."
       }
     }

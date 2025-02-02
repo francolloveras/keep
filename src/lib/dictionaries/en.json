@@ -3,6 +3,12 @@
     "themes": {
       "light": "Light",
       "dark": "Dark"
+    },
+    "accents": {
+      "error": "Error",
+      "success": "Success",
+      "warning": "Warning",
+      "info": "Info"
     }
   },
   "layout": {
@@ -71,6 +77,11 @@
     "toasts": {
       "login": {
         "unknown": "An unexpected error occurred, please try again later."
+      },
+      "user": {
+        "notSession": "Your session has expired, you must log in.",
+        "success": "Data updated successfully.",
+        "unknown": "Ocurrió un error inesperado, prueba más tarde."
       }
     }
   },
