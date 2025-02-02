@@ -27,7 +27,7 @@ export default function DialogWrapper() {
 
   return (
     <div role="dialog" className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-      <div className="min-w-[32rem] rounded-md border border-outline bg-background p-6 shadow-md transition-transform">
+      <div className="min-w-[32rem] rounded-md border border-outline bg-background p-6 shadow-lg shadow-black/5 transition-transform">
         {content}
       </div>
     </div>
