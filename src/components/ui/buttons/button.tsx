@@ -23,12 +23,13 @@ export default function Button({
       {...rest}
       disabled={isDisabled}
       className={cx(
+        'text-nowrap',
         {
-          'rounded-md bg-primary px-3 py-2 text-sm/6 font-medium text-background hover:brightness-110 transition-colors disabled:pointer-events-none disabled:brightness-90':
+          'rounded-md bg-primary px-3 py-1.5 text-sm/6 font-medium text-background hover:brightness-110 transition-colors disabled:pointer-events-none disabled:brightness-90':
             variant === 'default',
-          'rounded-md hover:bg-current-shadow border border-outline px-3 py-2 text-sm/6 font-medium':
+          'rounded-md hover:bg-current-shadow border border-outline px-3 py-1.5 text-sm/6 font-medium':
             variant === 'outline',
-          'rounded-md hover:bg-current-shadow px-3.5 py-2 text-sm/6 font-medium':
+          'rounded-md hover:bg-current-shadow px-3.5 py-1.5 text-sm/6 font-medium':
             variant === 'transparent',
           'pointer-events-none opacity-50': isDisabled
         },
