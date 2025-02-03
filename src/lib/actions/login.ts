@@ -4,7 +4,13 @@ import bcrypt from 'bcrypt'
 import { redirect } from 'next/navigation'
 import { z, ZodError } from 'zod'
 
-import { createSession, generateSessionToken, setSessionTokenCookie } from '@/auth'
+import {
+  createSession,
+  deleteSessionTokenCookie,
+  generateSessionToken,
+  invalidateSession,
+  setSessionTokenCookie
+} from '@/auth'
 import { PATHS } from '@/lib/const'
 import { FormAction } from '@/lib/hooks/useForm'
 import { prisma } from '@/lib/prisma'
@@ -89,4 +95,28 @@ export const login: FormAction<LoginFields, ToastMessages> = async (
 
   // If the previous block is passed, redirect the user to the home page.
   redirect(PATHS.HOME)
+}
+
+type BindData = { sessionId: string }
+
+export const signout: FormAction<null, ToastMessages, BindData> = async (bindData) => {
+  const { sessionId } = bindData
+
+  try {
+    await invalidateSession(sessionId)
+    await deleteSessionTokenCookie()
+  } catch (error) {
+    console.log('Error in signout:', error)
+
+    return {
+      actions: {
+        createToast: {
+          type: 'error',
+          message: 'unknown'
+        }
+      }
+    }
+  }
+
+  redirect(PATHS.LOGIN)
 }

@@ -3,6 +3,7 @@
 import { Session, User } from '@prisma/client'
 
 import AccountDialog from '@/components/account-dialog'
+import SignoutForm from '@/components/signout-form'
 import DialogButton from '@/components/ui/buttons/dialog-button'
 import Icon from '@/components/ui/icon'
 import LocaleSwitcher from '@/components/ui/locale-switcher'
@@ -12,9 +13,10 @@ import { useLocale } from '@/lib/hooks/useLocale'
 
 interface MenuProps {
   user: User & { sessions: Session[] }
+  session: Session
 }
 
-export default function NavMenu({ user }: MenuProps) {
+export default function NavMenu({ user, session }: MenuProps) {
   const { dict, lang } = useLocale()
 
   return (
@@ -70,10 +72,7 @@ export default function NavMenu({ user }: MenuProps) {
           </li>
           <div role="separator" className="-mx-1 my-1 h-px border-t border-outline" />
           <li>
-            <button className="w-full rounded p-1.5 text-left hover:bg-error hover:text-white">
-              <Icon icon="faArrowRightFromBracket" className="mr-2 mt-0.5 size-3.5" />
-              {dict.layout.menu.signout}
-            </button>
+            <SignoutForm session={session} />
           </li>
         </ul>
       </Menu>
