@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 
 import Form from '@/app/[lang]/login/form'
 import { getCurrentSession } from '@/auth'
+import Footer from '@/components/footer'
 import LocaleSwitcher from '@/components/ui/locale-switcher'
 import { PATHS } from '@/lib/const'
 import { getDictionary, type Locale } from '@/lib/dictionaries'
@@ -39,6 +40,7 @@ export default async function Login({
           <Form />
         </div>
       </div>
+      <Footer />
     </main>
   )
 }
