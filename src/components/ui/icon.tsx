@@ -5,7 +5,7 @@ import { cx } from '@/lib/utils'
 
 export type Icons = keyof typeof icons
 
-interface IconProps {
+export interface IconProps {
   icon: Icons
   className?: string
 }
