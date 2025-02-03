@@ -10,9 +10,10 @@ import { cx } from '@/lib/utils'
 
 interface NavProps {
   user: User & { sessions: Session[] }
+  session: Session
 }
 
-export default function Nav({ user }: NavProps) {
+export default function Nav({ user, session }: NavProps) {
   const { dict } = useLocale()
   const pathname = usePathname()
   const links = [
@@ -42,7 +43,7 @@ export default function Nav({ user }: NavProps) {
           </Link>
         ))}
       </nav>
-      <Menu user={user} />
+      <Menu user={user} session={session} />
     </header>
   )
 }

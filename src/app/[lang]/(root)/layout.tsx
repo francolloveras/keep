@@ -19,8 +19,8 @@ export default async function RootLayout({
 
   return (
     <>
-      <Nav user={user} />
-      {children}
+      <Nav user={user} session={session} />
+      <main className="mx-auto flex w-8/12 flex-1 py-6">{children}</main>
       <Footer />
     </>
   )
