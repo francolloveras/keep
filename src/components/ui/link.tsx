@@ -13,7 +13,7 @@ export default function Link({ href, children, ...rest }: LinkProps) {
   const { lang } = useLocale()
 
   return (
-    <ImportedLink href={href} locale={lang} {...rest}>
+    <ImportedLink href={`/${lang}${href}`} {...rest}>
       {children}
     </ImportedLink>
   )
