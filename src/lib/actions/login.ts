@@ -1,7 +1,6 @@
 'use server'
 
 import bcrypt from 'bcrypt'
-import { redirect } from 'next/navigation'
 import { z, ZodError } from 'zod'
 
 import {
@@ -14,6 +13,7 @@ import {
 import { PATHS } from '@/lib/const'
 import { FormAction } from '@/lib/hooks/useForm'
 import { prisma } from '@/lib/prisma'
+import { localeRedirect } from '@/lib/server-utils'
 import { formatZodError } from '@/lib/utils'
 
 const loginScheme = z.object({
@@ -94,7 +94,7 @@ export const login: FormAction<LoginFields, ToastMessages> = async (
   }
 
   // If the previous block is passed, redirect the user to the home page.
-  redirect(PATHS.HOME)
+  return await localeRedirect(PATHS.HOME)
 }
 
 type BindData = { sessionId: string }
@@ -118,5 +118,6 @@ export const signout: FormAction<null, ToastMessages, BindData> = async (bindDat
     }
   }
 
-  redirect(PATHS.LOGIN)
+  // If the previous block is passed, redirect the user to the login page.
+  return await localeRedirect(PATHS.LOGIN)
 }

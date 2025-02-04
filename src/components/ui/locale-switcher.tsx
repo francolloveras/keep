@@ -9,6 +9,7 @@ import Menu from '@/components/ui/menu'
 import { LOCALES, LOCALES_FLAGS, LOCALES_LONG } from '@/lib/const'
 import { Locale } from '@/lib/dictionaries'
 import { type Methods, type Positions } from '@/lib/hooks/useModal'
+import { setLocaleCookie } from '@/lib/server-utils'
 import { cx } from '@/lib/utils'
 
 interface LocaleSwitcherProps {
@@ -60,6 +61,7 @@ export default function LocaleSwitcher({
           <li key={locale}>
             <Link
               href={redirectedPathname(locale)}
+              onClick={() => void setLocaleCookie(locale)}
               className="flex cursor-pointer items-center gap-x-3 rounded p-1.5 hover:bg-current-shadow"
             >
               <Image

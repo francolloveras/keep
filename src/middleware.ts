@@ -19,7 +19,9 @@ export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
   // Ignore files in public.
-  if (['/flags/es.svg', '/flags/uk.svg'].includes(pathname)) return
+  if (['/flags/es.svg', '/flags/uk.svg'].includes(pathname)) {
+    return NextResponse.next()
+  }
 
   // Check if there is any supported locale in the pathname.
   const pathnameIsMissingLocale = LOCALES.every(
