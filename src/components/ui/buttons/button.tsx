@@ -3,7 +3,12 @@
 import Icon, { type Icons } from '@/components/ui/icon'
 import { cx } from '@/lib/utils'
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type BasicProps = React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>
+
+export interface ButtonProps extends BasicProps {
   icon?: Icons | { icon: Icons; className?: string }
   variant?: 'default' | 'transparent' | 'outline' | 'none'
   isDisabled?: boolean
