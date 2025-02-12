@@ -1,13 +1,14 @@
 'use client'
 
 import SubmitButton from '@/components/ui/buttons/submit-button'
+import { Form, FormBody, FormFooter } from '@/components/ui/form'
 import Input from '@/components/ui/inputs/input'
 import Link from '@/components/ui/link'
 import { login } from '@/lib/actions/login'
 import { useForm } from '@/lib/hooks/useForm'
 import { useLocale } from '@/lib/hooks/useLocale'
 
-export default function Form() {
+export default function LoginForm() {
   const { dict } = useLocale()
   const { fields, errors, loading, action } = useForm({
     action: login,
@@ -19,8 +20,8 @@ export default function Form() {
   const dictFields = dict.forms.fields.user
 
   return (
-    <form action={action} className="space-y-10">
-      <main className="space-y-3">
+    <Form action={action}>
+      <FormBody>
         <Input
           name="username"
           label={dictFields.username.label}
@@ -38,15 +39,15 @@ export default function Form() {
           placeholder={dictFields.password.placeholder}
           isRequired
         />
-      </main>
-      <footer className="flex w-full flex-col gap-y-4 text-center">
+      </FormBody>
+      <FormFooter className="w-full flex-col gap-y-4 text-center">
         <SubmitButton loading={loading} icon="faArrowRightToBracket" className="mr-2 w-full">
           {dict.login.form.submit}
         </SubmitButton>
         <Link href="#" className="hover:underline">
           {dict.login.form.forgotPassword}
         </Link>
-      </footer>
-    </form>
+      </FormFooter>
+    </Form>
   )
 }

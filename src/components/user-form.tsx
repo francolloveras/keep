@@ -4,6 +4,7 @@ import { User } from '@prisma/client'
 
 import Button from '@/components/ui/buttons/button'
 import SubmitButton from '@/components/ui/buttons/submit-button'
+import { Form, FormBody, FormFooter } from '@/components/ui/form'
 import Input from '@/components/ui/inputs/input'
 import { updateUserInfo } from '@/lib/actions/user'
 import { useDialog } from '@/lib/hooks/useDialog'
@@ -30,8 +31,8 @@ export default function UserForm({ user }: UserFormProps) {
   const dictFields = dict.forms.fields.user
 
   return (
-    <form action={action}>
-      <main className="space-y-3">
+    <Form action={action}>
+      <FormBody>
         <Input
           name="username"
           defaultValue={fields?.username}
@@ -57,18 +58,20 @@ export default function UserForm({ user }: UserFormProps) {
           name="password"
           label={dictFields.password.label}
           placeholder={dictFields.password.placeholder}
-          supportingText={dictFields.password.supportingText}
+          wrapper={{
+            supportingText: dictFields.password.supportingText
+          }}
           isDisabled
         />
-      </main>
-      <footer className="mt-10 flex justify-between">
+      </FormBody>
+      <FormFooter className="justify-between">
         <Button variant="outline" onClick={closeDialog}>
           {dict.layout.account.form.cancel}
         </Button>
         <SubmitButton loading={loading} icon="faSave">
           {dict.layout.account.form.submit}
         </SubmitButton>
-      </footer>
-    </form>
+      </FormFooter>
+    </Form>
   )
 }
