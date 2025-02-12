@@ -6,7 +6,13 @@ export interface InputWrapperProps {
   error?: string
   isRequired?: boolean
   isDisabled?: boolean
-  supportingText?: string
+  className?: string
+  supportingText?:
+    | string
+    | {
+        value: string
+        className?: string
+      }
   supportingTextSpace?: boolean
   children: React.ReactNode
 }
@@ -17,12 +23,13 @@ export default function InputWrapper({
   error,
   isRequired,
   isDisabled,
+  className,
   supportingText,
   supportingTextSpace = true,
   children
 }: InputWrapperProps) {
   return (
-    <div className="w-full">
+    <div className={cx('w-full', className)}>
       {label && (
         <label
           htmlFor={name}
@@ -37,11 +44,15 @@ export default function InputWrapper({
       {children}
       {supportingTextSpace && (
         <p
-          className={cx('mt-1 h-5 text-right text-xs text-text/60', {
-            'text-error': error !== undefined
-          })}
+          className={cx(
+            'mt-1 h-5 text-right text-xs text-text/60 mx-1',
+            {
+              'text-error': error !== undefined
+            },
+            [typeof supportingText !== 'string' && supportingText?.className]
+          )}
         >
-          {error || supportingText}
+          {error || (typeof supportingText === 'string' ? supportingText : supportingText?.value)}
         </p>
       )}
     </div>
