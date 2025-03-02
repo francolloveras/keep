@@ -10,5 +10,6 @@ export const LOCALES_FLAGS = {
 
 export const PATHS = {
   HOME: '/',
-  LOGIN: '/login'
+  LOGIN: '/login',
+  CARDS: '/cards'
 } as const
