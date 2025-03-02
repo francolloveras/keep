@@ -26,6 +26,7 @@ export default function Button({
   return (
     <button
       {...rest}
+      type={rest.type || 'button'}
       disabled={isDisabled}
       className={cx(
         'text-nowrap',
