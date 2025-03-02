@@ -4,7 +4,14 @@ import { User } from '@prisma/client'
 
 import Button from '@/components/ui/buttons/button'
 import SubmitButton from '@/components/ui/buttons/submit-button'
-import { Form, FormBody, FormFooter } from '@/components/ui/form'
+import {
+  Form,
+  FormBody,
+  FormFooter,
+  FormHeader,
+  FormSubtitle,
+  FormTitle
+} from '@/components/ui/form'
 import Input from '@/components/ui/inputs/input'
 import { updateUserInfo } from '@/lib/actions/user'
 import { useDialog } from '@/lib/hooks/useDialog'
@@ -32,26 +39,33 @@ export default function UserForm({ user }: UserFormProps) {
 
   return (
     <Form action={action}>
+      <FormHeader>
+        <FormTitle>{dict.layout.account.tabs.general.title}</FormTitle>
+        <FormSubtitle>{dict.layout.account.tabs.general.description}</FormSubtitle>
+      </FormHeader>
       <FormBody>
         <Input
           name="username"
           defaultValue={fields?.username}
           label={dictFields.username.label}
-          error={errors?.username ? dictFields.username.errors[errors.username] : undefined}
+          // @ts-expect-error Errors type.
+          error={dictFields.username.errors[errors?.username]}
           placeholder={dictFields.username.placeholder}
         />
         <Input
           name="name"
           defaultValue={fields?.name}
           label={dictFields.name.label}
-          error={errors?.name ? dictFields.name.errors[errors.name] : undefined}
+          // @ts-expect-error Errors type.
+          error={dictFields.name.errors[errors?.name]}
           placeholder={dictFields.name.placeholder}
         />
         <Input
           name="email"
           defaultValue={fields?.email}
           label={dictFields.email.label}
-          error={errors?.email ? dictFields.email.errors[errors.email] : undefined}
+          // @ts-expect-error Errors type.
+          error={dictFields.email.errors[errors?.email]}
           placeholder={dictFields.email.placeholder}
         />
         <Input

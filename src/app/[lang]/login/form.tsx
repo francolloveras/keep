@@ -26,7 +26,8 @@ export default function LoginForm() {
           name="username"
           label={dictFields.username.label}
           defaultValue={fields?.username}
-          error={errors?.username ? dictFields.username.errors[errors.username] : undefined}
+          // @ts-expect-error Errors type.
+          error={dictFields.username.errors[errors?.username]}
           placeholder={dictFields.username.placeholder}
           isRequired
         />
@@ -35,7 +36,8 @@ export default function LoginForm() {
           name="password"
           label={dictFields.password.label}
           defaultValue={fields?.password}
-          error={errors?.password ? dictFields.password.errors[errors.password] : undefined}
+          // @ts-expect-error Errors type.
+          error={dictFields.password.errors[errors?.password]}
           placeholder={dictFields.password.placeholder}
           isRequired
         />
