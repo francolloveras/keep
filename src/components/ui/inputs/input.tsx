@@ -39,7 +39,8 @@ export default function Input({
           'block w-full text-sm/6 rounded-md border border-outline bg-transparent px-3 py-1.5 text-text outline-none placeholder:text-text/40 focus:outline-2 focus:-outline-offset-2 focus:outline-primary',
           {
             '-outline-offset-2 outline-error': error !== undefined
-          }
+          },
+          rest.className
         )}
       />
     </InputWrapper>
